@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import FormProduct from './components/FormProduct';
+import ListProduct from './components/ListProduct';
+interface Data {
+  product: {
+    id: number;
+    name: string;
+    color: string;
+  }[];
+}
 function App() {
+  const [product, setProduct] = useState<Data['product']>([
+    {
+      id: 1,
+      name: 'Iphone',
+      color: 'red',
+    },
+    {
+      id: 2,
+      name: 'SAMSUNG',
+      color: 'green',
+    },
+  ]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello</h1>
+      <FormProduct></FormProduct>
     </div>
   );
 }
